@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProjectMate | Book Publishing Service</title>
+<meta name="description" content="ProjectMate helps turn your stories and ideas into professionally prepared books.">
+<style>
+:root{
+  --cream:#fbf5e9; --paper:#fffdf8; --ink:#24211e;
+  --brown:#70472f; --rust:#bd6843; --gold:#e9bb5b; --muted:#766b61;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(251,245,233,.94);backdrop-filter:blur(10px);border-bottom:1px solid #eadfce}
+.navin{height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.35rem;font-weight:800;color:var(--brown)}
+.logo span{display:block;font-size:.65rem;letter-spacing:2px;font-weight:500;color:var(--muted)}
+.navlinks{display:flex;gap:24px;font-size:.92rem}
+.navlinks a:hover{color:var(--rust)}
+.btn{display:inline-block;background:var(--rust);color:white;padding:13px 22px;border-radius:999px;font-weight:700;border:0;cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.hero{padding:85px 0 70px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.kicker{color:var(--rust);font-weight:800;letter-spacing:1.5px;text-transform:uppercase;font-size:.8rem}
+h1{font-size:clamp(3rem,7vw,5.6rem);line-height:.98;margin:15px 0 24px}
+.highlight{background:linear-gradient(transparent 62%,#f3d58c 62%);display:inline}
+.hero p{font-size:1.12rem;color:var(--muted);max-width:570px;margin-bottom:28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn.alt{background:transparent;color:var(--brown);border:1px solid #cdbda8}
+.book-card{background:var(--paper);border-radius:30px;padding:45px;box-shadow:0 20px 60px rgba(80,50,30,.12);text-align:center;transform:rotate(1deg)}
+.book{height:240px;display:flex;justify-content:center;align-items:center;gap:0}
+.page{width:145px;height:190px;background:#fffdf7;border:3px solid var(--brown);box-shadow:0 8px 0 #d99a6d;position:relative}
+.page.left{border-radius:12px 4px 4px 12px;transform:skewY(-3deg)}
+.page.right{border-radius:4px 12px 12px 4px;transform:skewY(3deg)}
+.page:after{content:"";position:absolute;left:22px;right:22px;top:40px;height:3px;background:#ded2c2;box-shadow:0 22px #ded2c2,0 44px #ded2c2,0 66px #ded2c2}
+.book-card h3{margin-top:12px;color:var(--brown)}
+section{padding:75px 0}
+.section-title{text-align:center;max-width:650px;margin:0 auto 42px}
+.section-title h2{font-size:2.3rem;margin-bottom:8px}
+.section-title p{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--paper);padding:27px 20px;border-radius:22px;border:1px solid #eee1cf}
+.icon{font-size:2rem;margin-bottom:12px}
+.card h3{font-size:1rem;margin-bottom:7px}
+.card p{font-size:.9rem;color:var(--muted)}
+.process{background:#f2e6d3}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step{background:var(--paper);padding:24px;border-radius:20px}
+.num{width:34px;height:34px;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-weight:800;margin-bottom:15px}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.price{background:var(--paper);border-radius:24px;padding:30px;border:1px solid #eadcca}
+.price.featured{border:2px solid var(--rust);transform:translateY(-8px)}
+.price h3{color:var(--brown)}
+.price .amount{font-size:2.1rem;font-weight:900;margin:12px 0}
+.price ul{list-style:none;color:var(--muted);margin:18px 0}
+.price li{margin:8px 0}
+.contact{background:var(--brown);color:white;border-radius:35px;padding:55px;text-align:center}
+.contact p{opacity:.85;margin:10px auto 24px;max-width:600px}
+footer{padding:35px 0;color:var(--muted);text-align:center;font-size:.9rem}
+@media(max-width:800px){
+ .navlinks{display:none}.hero{padding-top:55px}.hero-grid{grid-template-columns:1fr;gap:35px}
+ .book-card{padding:30px}.cards,.steps{grid-template-columns:1fr 1fr}.pricing{grid-template-columns:1fr}
+ .price.featured{transform:none}
+}
+@media(max-width:500px){.cards,.steps{grid-template-columns:1fr}h1{font-size:3.3rem}.contact{padding:38px 22px}}
+</style>
+</head>
+<body>
+<nav>
+ <div class="container navin">
+  <a class="logo" href="#home">ProjectMate<span>YOUR IDEAS • OUR SUPPORT</span></a>
+  <div class="navlinks">
+   <a href="#services">Services</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+  </div>
+  <a class="btn" href="#contact">Get Started</a>
+ </div>
+</nav>
+
+<main id="home">
+<section class="hero">
+ <div class="container hero-grid">
+  <div>
+   <div class="kicker">Book Publishing • Editing • Formatting</div>
+   <h1>Have a <span class="highlight">Story?</span></h1>
+   <p>We'll help turn your ideas, stories and manuscripts into a beautifully prepared book — simply and affordably.</p>
+   <div class="hero-actions">
+    <a class="btn" href="#contact">Start Your Book</a>
+    <a class="btn alt" href="#services">Explore Services</a>
+   </div>
+  </div>
+  <div class="book-card">
+   <div class="book"><div class="page left"></div><div class="page right"></div></div>
+   <h3>Your Book Starts Here ✨</h3>
+   <p>From idea to final-ready pages.</p>
+  </div>
+ </div>
+</section>
+
+<section id="services">
+ <div class="container">
+  <div class="section-title"><h2>What we can help with</h2><p>Simple support for writers, students and first-time authors.</p></div>
+  <div class="cards">
+   <div class="card"><div class="icon">📖</div><h3>Book Preparation</h3><p>Organising your content into a clean book format.</p></div>
+   <div class="card"><div class="icon">✍️</div><h3>Editing & Formatting</h3><p>Neat formatting, page arrangement and presentation.</p></div>
+   <div class="card"><div class="icon">🖨️</div><h3>Print & Digital</h3><p>Support for print-ready and digital book versions.</p></div>
+   <div class="card"><div class="icon">💡</div><h3>Publishing Guidance</h3><p>Guidance through the basic publishing process.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="process" id="process">
+ <div class="container">
+  <div class="section-title"><h2>How ProjectMate works</h2><p>Four simple steps from your idea to your finished project.</p></div>
+  <div class="steps">
+   <div class="step"><div class="num">1</div><h3>Tell us</h3><p>Send your requirements, manuscript or idea.</p></div>
+   <div class="step"><div class="num">2</div><h3>We prepare</h3><p>We format and organise the work according to your needs.</p></div>
+   <div class="step"><div class="num">3</div><h3>You check</h3><p>Review the prepared version and request changes.</p></div>
+   <div class="step"><div class="num">4</div><h3>Final delivery</h3><p>Receive the completed, ready-to-use files.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="pricing">
+ <div class="container">
+  <div class="section-title"><h2>Simple pricing</h2><p>Final pricing can depend on pages, format and requirements.</p></div>
+  <div class="pricing">
+   <div class="price"><h3>Basic</h3><div class="amount">From ₹5</div><ul><li>✓ Basic formatting</li><li>✓ Page arrangement</li><li>✓ Simple presentation</li></ul><a class="btn" href="#contact">Enquire</a></div>
+   <div class="price featured"><h3>Book Package</h3><div class="amount">Custom</div><ul><li>✓ Book formatting</li><li>✓ Cover/page setup</li><li>✓ Final-ready file</li></ul><a class="btn" href="#contact">Get Quote</a></div>
+   <div class="price"><h3>Custom</h3><div class="amount">Let's Talk</div><ul><li>✓ Special requirements</li><li>✓ Multiple services</li><li>✓ Personal guidance</li></ul><a class="btn" href="#contact">Enquire</a></div>
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="container">
+  <div class="contact">
+   <h2>Ready to turn your idea into a book?</h2>
+   <p>Message ProjectMate with your requirements and we'll discuss the next steps.</p>
+   <!-- ProjectMate WhatsApp: +91 62911 07128 | Email: projectmate.inn@gmail.com -->
+   <a class="btn" href="https://wa.me/916291107128?text=Hi%20ProjectMate%2C%20I%20want%20to%20know%20about%20your%20book%20publishing%20service." target="_blank">💬 WhatsApp ProjectMate</a>
+   <a class="btn alt" href="mailto:projectmate.inn@gmail.com">✉️ Email Us</a>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container">© 2026 ProjectMate • Book Publishing Service • Your Ideas • Our Support</div>
+</footer>
+</body>
+</html>
